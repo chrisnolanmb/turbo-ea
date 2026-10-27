@@ -17,6 +17,9 @@ fi
 echo "Ensuring Turbo EA containers are running..."
 docker compose -f docker-compose.yml up -d
 
+# Cargar el modelo de Grupo Velsen si la instancia sigue vacía.
+bash .devcontainer/velsen/import-velsen.sh
+
 cat <<'BANNER'
 
 ======================================
