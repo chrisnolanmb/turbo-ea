@@ -1,52 +1,40 @@
-# Turbo EA Demo
+# Grupo Velsen en Turbo EA
 
-The Codespace pulls the published Turbo EA images from GHCR and starts
-the full stack with the NexaTech demo dataset (including BPM and PPM
-data). First-run setup takes ~5–10 minutes — mostly the image pull and
-the demo seed.
+Este codespace descarga las imágenes publicadas de Turbo EA, levanta la
+plataforma y carga el modelo del holding Grupo Velsen. La primera vez
+tarda entre 5 y 10 minutos.
 
-Once the build finishes, **open the forwarded port `8920`** in your
-browser (the *Ports* panel pops it open automatically the first time).
+Al terminar, **abre el puerto `8920`** en el navegador (el panel *Ports*
+lo abre solo la primera vez).
 
-## Login credentials
+## Acceso
 
-| Field    | Value                  |
-| -------- | ---------------------- |
-| Email    | `admin@turboea.demo`   |
-| Password | `TurboEA!2025`         |
+| Campo      | Valor               |
+| ---------- | ------------------- |
+| Correo     | `admin@velsen.demo` |
+| Contraseña | `Holding!2026demo`  |
 
-## What's enabled
+Cambia la contraseña al entrar. Los demás usuarios tienen correos de
+prueba `@grupo-velsen.mx` y no pueden iniciar sesión.
 
-- NexaTech Industries demo metamodel + cards (`SEED_DEMO=true`)
-- PPM module — initiatives, status reports, WBS, tasks, costs, risks
-- BPM module — enabled by default, browse from the top nav
+## Qué se carga
 
-## Useful commands
+- 347 fichas: empresas, áreas, 117 procesos, 33 sistemas, 18 inmuebles y
+  24 obras e iniciativas, con 589 relaciones.
+- Diagramas BPMN, riesgos, decisiones, principios y tareas de proyecto.
+- El archivo es `.devcontainer/velsen/grupo-velsen-workspace.zip`; lo
+  importa `.devcontainer/velsen/import-velsen.sh` la primera vez.
 
-Run from the repository root:
+## Importante
 
-```bash
-# Tail all logs
-docker compose logs -f
+El codespace es temporal: se apaga tras 30 minutos sin uso y los datos se
+conservan mientras no lo borres. Para que lo use el equipo hace falta un
+servidor propio.
 
-# Restart the stack
-docker compose restart
-
-# Stop the stack
-docker compose down
-
-# Pull newer images and restart
-docker compose pull && docker compose up -d
-```
-
-## Troubleshooting
-
-If port 8920 returns 502:
+## Comandos útiles
 
 ```bash
-docker compose ps
-docker compose logs --tail=200
+docker compose logs -f     # ver registros
+docker compose restart     # reiniciar
+docker compose down        # detener
 ```
-
-The first-run database migrations + demo seed take several minutes even
-after containers are *Up* — give it a moment and refresh.

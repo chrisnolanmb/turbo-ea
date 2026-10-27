@@ -35,8 +35,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES=1440
 ENVIRONMENT=development
 ALLOWED_ORIGINS=*
 HOST_PORT=8920
-SEED_DEMO=true
-SEED_PPM=true
+SEED_DEMO=false
+SEED_PPM=false
 EOF
   log "Generated .env with demo configuration."
 else
@@ -112,6 +112,9 @@ if [ "$ready" -ne 1 ]; then
   exit 0
 fi
 
+# Cargar el modelo de Grupo Velsen (solo la primera vez).
+bash .devcontainer/velsen/import-velsen.sh
+
 log ""
 log "======================================"
 log "  Turbo EA Demo is running!"
@@ -120,8 +123,8 @@ log ""
 log "  Open the forwarded port 8920 in your browser."
 log ""
 log "  Login credentials:"
-log "    Email:    admin@turboea.demo"
-log "    Password: TurboEA!2025"
+log "    Email:    admin@velsen.demo"
+log "    Password: Holding!2026demo"
 log ""
 log "  Useful commands:"
 log "    $COMPOSE logs -f       # View logs"

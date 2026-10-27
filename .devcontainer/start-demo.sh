@@ -26,8 +26,8 @@ cat <<'BANNER'
   Open the forwarded port 8920 in your browser.
 
   Login credentials:
-    Email:    admin@turboea.demo
-    Password: TurboEA!2025
+    Email:    admin@velsen.demo
+    Password: Holding!2026demo
 
   See .devcontainer/WELCOME.md for more.
 
